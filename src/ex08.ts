@@ -3,11 +3,11 @@
 // Use optional chaining to safely access the "city" and log it to the console.
 
 interface Address {
-
+  city?: string
 }
 
 interface House {
-
+ address?: Address
 }
 
 const myHouse = {
@@ -16,9 +16,9 @@ const myHouse = {
   }
 };
 
-console.log( );
+console.log(myHouse.address?.city);
 // Expected Output: "New York"
 
-const noCityHouse = {};
-console.log( );
+const noCityHouse: House = {};
+console.log(noCityHouse.address?.city ?? "City not available");
 // Expected Output: "City not available"
